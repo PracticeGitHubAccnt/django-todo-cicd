@@ -1,8 +1,11 @@
 FROM python:3
 
-# Install distutils package
-RUN apt-get update && apt-get install -y pip install setuptools
-RUN sudo apt-get install python3-setuptools
+# Update system packages and install necessary dependencies
+RUN apt-get update && apt-get install -y \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python packages using pip
+RUN pip install --upgrade pip setuptools
 
 WORKDIR /data
 
