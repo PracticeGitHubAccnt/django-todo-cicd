@@ -1,11 +1,13 @@
 FROM python:3
 
 # Install distutils package
-RUN apt-get update && apt-get install -y python3-distutils
+RUN apt-get update && apt-get install -y pip install setuptools
+RUN sudo apt-get install python3-setuptools
 
 WORKDIR /data
 
-RUN pip install django==3.2
+RUN pip install Django==5.1.6
+
 
 COPY . .
 
